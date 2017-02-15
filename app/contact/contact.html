@@ -1,0 +1,24 @@
+<main class="container">
+  <section>
+    <!-- Contact form -->
+    <div [hidden]="hasBeenSubmitted">
+      <form class="contact-form signup-form col-xs-12 col-md-8 col-lg-5" (ngSubmit)="register(contactForm, $event)" #contactForm="ngForm">
+        <h1>contact us</h1>
+        <div>
+          <label for="contactname">name:</label>
+          <input type="text" name="contactname" id="contactname" [(ngModel)]="model.contactname" placeholder="YOUR NAME..." required>
+        </div>
+        <div>
+          <label for="contactemail">email:</label>
+          <input type="email" name="contactemail" id="contactemail" [(ngModel)]="model.contactemail"
+                 pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" placeholder="YOUR E-MAIL..." required>
+        </div>
+        <label for="contactmsg">message:</label>
+        <textarea name="contactmsg" id="contactmsg" [(ngModel)]="model.msg" rows="8" required></textarea>
+        <button type="submit">send message</button>
+      </form><!-- Contact form ends here -->
+    </div>
+    <div [hidden]="!hasBeenSubmitted">
+    </div>
+  </section><!-- container ends here -->
+</main>

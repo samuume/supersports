@@ -1,0 +1,67 @@
+<footer class="footer">
+  <section class="container-fluid news-letter">
+    <div class="container" [hidden]="hasBeenSubmitted"><!-- flexbox -->
+      <h2 class="col-lg-9">sign up for exclusive sales and product news</h2>
+      <form class="signup-form col-lg-3" (ngSubmit)="register(newsletterForm, $event)" #newsletterForm="ngForm">
+        <input type="email" [(ngModel)]="model.email" name="email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" placeholder="YOUREMAIL@EMAIL.COM" required>
+        <input type="submit" value="SIGN UP">
+      </form>
+    </div>
+    <div [hidden]="!hasBeenSubmitted">
+    </div>
+  </section><!-- news letter form ends here -->
+  <section class="footer-links">
+    <div class="container">
+      <div class="col-xs-12 col-md-5 col-lg-4">
+        <h2>our stores</h2>
+        <p>Feel free to visit our stores or contact us</p>
+        <p>
+          <span>Vinegade 100</span><span>5000 Odense</span><span>99887766</span>
+        </p>
+        <p>
+          <span>Vestergade 750</span><span>9000 Aalborg</span><span>99886622</span>
+        </p>
+        <div class="socialmedia">
+          <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+          <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
+          <a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a>
+        </div><!-- social media end here -->
+      </div><!-- col 1 ends here -->
+      <div class="col-xs-12 col-md-5 col-lg-4">
+        <h2>blog posts</h2>
+        <div>
+          <h5>Title here</h5>
+          <p>Loerm ipsum dolor sit amet, consectetur adipiscing, vivamus congue nulla leo, quis imperdiet magna.</p>
+          <h5>Title here</h5>
+          <p>Loerm ipsum dolor sit amet, consectetur adipiscing, vivamus congue nulla leo, quis imperdiet magna.</p>
+          <h5>Title here</h5>
+          <p>Loerm ipsum dolor sit amet, consectetur adipiscing, vivamus congue nulla leo, quis imperdiet magna.</p>
+        </div>
+      </div><!-- col 2 ends here -->
+      <div class="col-xs-12 col-md-5 col-lg-4">
+        <h2>support</h2>
+        <ul>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Payment</a></li>
+          <li><a href="#">Refunds</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Privacy &amp; Security</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Corporate information</a></li>
+          <li><a href="#">Sizing</a></li>
+          <li><a href="#">Ordering</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Affiliates</a></li>
+          <li><a href="#">Find A Store</a></li>
+          <li><a href="#">Site Map</a></li>
+          <li><a href="#">Sign up &amp; Save</a></li>
+        </ul>
+      </div><!-- col 3 ends here -->
+    </div><!-- flexbox ends here -->
+  </section><!-- footer links end here -->
+</footer>

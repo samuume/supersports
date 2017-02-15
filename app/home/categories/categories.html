@@ -1,0 +1,7 @@
+<article class="container-fluid topsales">
+  <div class="col-xs-12 col-md-8 col-lg-4 cate-images" *ngFor="let category of categories">
+    <img class="cate-img" src="{{category.image}}" alt="category image">
+    <h1><a href="#">{{category.title}}</a></h1>
+    <p>{{category.content}}</p>
+  </div>
+</article><!-- top sales end here -->
