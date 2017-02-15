@@ -27,6 +27,5 @@ export class ContactComponent implements OnInit {
     event.preventDefault();
     this.hasBeenSubmitted = true;
     alert(`You have submitted your message! Thanks, ${form.value.contactname}`);
-    location.reload();
   }
 }

@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
+var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var header_component_1 = require('./shared/site-header/header.component');
@@ -36,7 +37,9 @@ var AppModule = (function () {
                     { path: 'product/:id', component: product_detail_component_1.ProductDetailComponent },
                     { path: '', redirectTo: 'home', pathMatch: 'full' },
                     { path: '**', redirectTo: 'home', pathMatch: 'full' }
-                ]),
+                ], {
+                    useHash: true, preloadingStrategy: router_1.PreloadAllModules
+                }),
                 forms_1.FormsModule
             ],
             declarations: [
@@ -51,7 +54,7 @@ var AppModule = (function () {
                 contact_component_1.ContactComponent,
                 product_detail_component_1.ProductDetailComponent
             ],
-            providers: [product_data_service_1.ProductDataService],
+            providers: [product_data_service_1.ProductDataService, router_1.ROUTER_PROVIDERS, { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
