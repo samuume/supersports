@@ -3,8 +3,9 @@
     <div class="container" [hidden]="hasBeenSubmitted"><!-- flexbox -->
       <h2 class="col-lg-9">sign up for exclusive sales and product news</h2>
       <form class="signup-form col-lg-3" (ngSubmit)="register(newsletterForm, $event)" #newsletterForm="ngForm">
-        <input type="email" [(ngModel)]="model.email" name="email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" placeholder="YOUREMAIL@EMAIL.COM" required>
-        <input type="submit" value="SIGN UP">
+        <p class="msgvisible">{{msgText}}</p>
+        <input [ngClass]="{'msgClass': msgShow}" type="email" [(ngModel)]="model.email" name="email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" placeholder="YOUREMAIL@EMAIL.COM" required>
+        <input type="submit" value="SIGN UP" (click)="msgShow=!msgShow;">
       </form>
     </div>
     <div [hidden]="!hasBeenSubmitted">

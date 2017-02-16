@@ -1,24 +1,56 @@
 <main class="container">
   <section>
     <!-- Contact form -->
-    <div [hidden]="hasBeenSubmitted">
-      <form class="contact-form signup-form col-xs-12 col-md-8 col-lg-5" (ngSubmit)="register(contactForm, $event)" #contactForm="ngForm">
+    <div [hidden]="submitted">
+      <form *ngIf="active"
+            (ngSubmit)="onSubmit()"
+            #contactForm="ngForm"
+            class="contact-form col-xs-12 col-md-6 col-lg-5">
         <h1>contact us</h1>
-        <div>
-          <label for="contactname">name:</label>
-          <input type="text" name="contactname" id="contactname" [(ngModel)]="model.contactname" placeholder="YOUR NAME..." required>
+        <div class="form-group">
+          <label for="name">name:</label>
+          <input type="text"
+                 name="name"
+                 id="name"
+                 minlength="3"
+                 maxlength="24"
+                 required
+                 [(ngModel)]="model.name"
+                 placeholder="YOUR NAME...">
         </div>
-        <div>
-          <label for="contactemail">email:</label>
-          <input type="email" name="contactemail" id="contactemail" [(ngModel)]="model.contactemail"
-                 pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" placeholder="YOUR E-MAIL..." required>
+        <div class="form-group">
+          <label for="email">email:</label>
+          <input type="email"
+                 name="email"
+                 id="email"
+                 required
+                 [(ngModel)]="model.email"
+                 pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+                 placeholder="YOUR E-MAIL...">
         </div>
-        <label for="contactmsg">message:</label>
-        <textarea name="contactmsg" id="contactmsg" [(ngModel)]="model.msg" rows="8" required></textarea>
-        <button type="submit">send message</button>
+          <label for="msg">message:</label>
+          <textarea name="msg"
+                    id="msg"
+                    required
+                    [(ngModel)]="model.msg"
+                    rows="8"></textarea>
+        <input type="submit" class="btn btn-danger" value="SEND MESSAGE">
       </form><!-- Contact form ends here -->
     </div>
-    <div [hidden]="!hasBeenSubmitted">
+    <div [hidden]="!submitted">
+      <h2 class="container">Thanks for submitting, here is your details.</h2>
+      <p class="msg-content">
+        <span class="col-xs-3 col-md-3 col-lg-3">Name: </span>
+        <span class="col-xs-3 col-md-5 col-lg-5 pull-left">{{ model.name }}</span>
+      </p>
+      <p class="msg-content">
+        <span class="col-xs-3 col-md-3 col-lg-3">E-mail: </span>
+        <span class="col-xs-3 col-md-5 col-lg-5 pull-left">{{ model.email }}</span>
+      </p>
+      <p class="msg-content">
+        <span class="col-xs-3 col-md-3 col-lg-3">Message: </span>
+        <span class="col-xs-3 col-md-5 col-lg-5 pull-left">{{ model.msg }}</span>
+      </p>
     </div>
   </section><!-- container ends here -->
 </main>

@@ -19,7 +19,9 @@ var Newsletter = (function () {
 }());
 var FooterComponent = (function () {
     function FooterComponent() {
+        this.msgText = "";
         this.model = new Newsletter();
+        this.msgShow = false;
     }
     FooterComponent.prototype.ngOnInit = function () {
         this.hasBeenSubmitted = false;
@@ -27,7 +29,7 @@ var FooterComponent = (function () {
     FooterComponent.prototype.register = function (form, event) {
         event.preventDefault();
         this.hasBeenSubmitted = true;
-        alert("You have been submitted our newsletter with " + form.value.email);
+        this.msgText = "You have been submitted our newsletter with " + form.value.email;
     };
     FooterComponent = __decorate([
         core_1.Component({

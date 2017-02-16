@@ -273,12 +273,15 @@ header {
   width: 100%;
   resize: none;
   border: 1px solid #808080; }
-.contact-form button {
-  width: 150px;
+.contact-form input[type=submit] {
+  width: 100%;
   padding: 10px 0;
   margin-top: 20px;
-  background-color: #f45a40; }
-.contact-form buttonhover {
+  border: none;
+  color: #ffffff;
+  background-color: #f45a40;
+  border-radius: 0 !important; }
+.contact-form input[type=submit]:hover {
   background-color: #db2a0d; }
 
 /* Product detail page */
@@ -463,12 +466,14 @@ header {
     width: 300px; }
   .contact-form textarea {
     width: 445px; }
-  .contact-form button {
+  .contact-form input[type=submit] {
     width: 150px;
     padding: 10px 0;
     margin-top: 20px;
+    border: none;
+    color: #ffffff;
     background-color: #f45a40; }
-  .contact-form buttonhover {
+  .contact-form input[type=submit]:hover {
     background-color: #db2a0d; }
   /* Product detail page */
   .product-info {
@@ -700,4 +705,8 @@ button:focus {
     margin-right: 5%;
   }
 }
-
+.msg-content {
+  color: #000000;
+  display: flex;
+  width: 100%;
+}

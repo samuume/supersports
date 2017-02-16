@@ -12,8 +12,10 @@ class Newsletter {
   templateUrl: './app/shared/site-footer/footer.html'
 })
 export class FooterComponent implements OnInit {
+  msgText: string = "";
   model:Newsletter = new Newsletter();
   hasBeenSubmitted: boolean;
+  msgShow = false;
 
   ngOnInit() {
     this.hasBeenSubmitted = false;
@@ -21,6 +23,6 @@ export class FooterComponent implements OnInit {
   register(form:NgForm, event:Event) {
     event.preventDefault();
     this.hasBeenSubmitted = true;
-    alert(`You have been submitted our newsletter with ${form.value.email}`);
+    this.msgText = `You have been submitted our newsletter with ${form.value.email}`;
   }
 }

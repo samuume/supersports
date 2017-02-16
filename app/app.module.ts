@@ -1,7 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, PreloadAllModules, ROUTER_PROVIDERS } from '@angular/router';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }  from './app.component';
@@ -26,9 +25,7 @@ import {ProductDataService} from "./shared/product-data.service";
       { path:'product/:id', component:ProductDetailComponent },
       { path:'', redirectTo:'home', pathMatch:'full'},
       { path:'**', redirectTo:'home', pathMatch:'full'}
-    ], {
-      useHash: true, preloadingStrategy: PreloadAllModules
-    }),
+    ]),
     FormsModule
   ],
   declarations: [
@@ -43,7 +40,7 @@ import {ProductDataService} from "./shared/product-data.service";
     ContactComponent,
     ProductDetailComponent
   ],
-  providers: [ ProductDataService, ROUTER_PROVIDERS, {provide: LocationStrategy, useClass: HashLocationStrategy } ],
+  providers: [ ProductDataService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

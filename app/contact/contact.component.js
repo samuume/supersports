@@ -12,22 +12,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by zongy on 12-02-2017.
  */
 var core_1 = require('@angular/core');
-var Contactform = (function () {
-    function Contactform() {
-    }
-    return Contactform;
-}());
+var contact_1 = require('./contact');
 var ContactComponent = (function () {
     function ContactComponent() {
-        this.model = new Contactform();
+        this.model = new contact_1.Contactinfo('', '', '');
+        this.submitted = false;
+        this.active = true;
     }
-    ContactComponent.prototype.ngOnInit = function () {
-        this.hasBeenSubmitted = false;
-    };
-    ContactComponent.prototype.register = function (form, event) {
-        event.preventDefault();
-        this.hasBeenSubmitted = true;
-        alert("You have submitted your message! Thanks, " + form.value.contactname);
+    ContactComponent.prototype.onSubmit = function () {
+        this.submitted = true;
     };
     ContactComponent = __decorate([
         core_1.Component({

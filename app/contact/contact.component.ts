@@ -1,31 +1,20 @@
 /**
  * Created by zongy on 12-02-2017.
  */
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-
-class Contactform {
-  contactname: string;
-  contactemail: string;
-  msg: string;
-}
+import { Component } from '@angular/core';
+import { Contactinfo } from './contact';
 
 @Component ({
   selector: 'contact',
   templateUrl: './app/contact/contact.html'
 })
 
-export class ContactComponent implements OnInit {
-  model:Contactform = new Contactform();
-  hasBeenSubmitted: boolean;
+export class ContactComponent {
+  model = new Contactinfo('', '', '');
+  submitted = false;
 
-  ngOnInit() {
-    this.hasBeenSubmitted = false;
+  onSubmit() {
+    this.submitted = true;
   }
-
-  register(form:NgForm, event:Event) {
-    event.preventDefault();
-    this.hasBeenSubmitted = true;
-    alert(`You have submitted your message! Thanks, ${form.value.contactname}`);
-  }
+  active = true;
 }

@@ -19,7 +19,7 @@
         </div><!-- navbar header ends -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a routerLink="/home" routerLinkActive="active">home</a></li>
+            <li><a [routerLink]='["/home"]' routerLinkActive="active">home</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">men <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -34,7 +34,7 @@
             <li><a href="#">sale</a></li>
             <li><a href="#">about</a></li>
             <li><a href="#">support</a></li>
-            <li><a routerLink="/contact" routerLinkActive="active">contact</a></li>
+            <li><a [routerLink]='["/contact"]' routerLinkActive="active">contact</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <div class="form-group search-bar">
