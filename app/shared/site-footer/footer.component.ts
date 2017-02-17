@@ -1,8 +1,9 @@
 /**
  * Created by zongy on 12-02-2017.
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 class Newsletter {
   email: string;
@@ -12,17 +13,16 @@ class Newsletter {
   templateUrl: './app/shared/site-footer/footer.html'
 })
 export class FooterComponent implements OnInit {
-  msgText: string = "";
   model:Newsletter = new Newsletter();
   hasBeenSubmitted: boolean;
-  msgShow = false;
-
+  @ViewChild('myModal')
+  modal: ModalComponent;
   ngOnInit() {
     this.hasBeenSubmitted = false;
   }
   register(form:NgForm, event:Event) {
     event.preventDefault();
     this.hasBeenSubmitted = true;
-    this.msgText = `You have been submitted our newsletter with ${form.value.email}`;
+    this.modal.open();
   }
 }

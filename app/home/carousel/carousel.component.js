@@ -16,10 +16,6 @@ var CarouselComponent = (function () {
     function CarouselComponent() {
     }
     CarouselComponent.prototype.ngAfterViewInit = function () {
-        $('.carousel').carousel({
-            interval: 5000,
-            pause: "false"
-        });
     };
     CarouselComponent = __decorate([
         core_1.Component({

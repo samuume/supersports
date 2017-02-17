@@ -1,14 +1,27 @@
 <footer class="footer">
   <section class="container-fluid news-letter">
-    <div class="container" [hidden]="hasBeenSubmitted"><!-- flexbox -->
+    <div class="container"><!-- flexbox -->
       <h2 class="col-lg-9">sign up for exclusive sales and product news</h2>
-      <form class="signup-form col-lg-3" (ngSubmit)="register(newsletterForm, $event)" #newsletterForm="ngForm">
-        <p class="msgvisible">{{msgText}}</p>
-        <input [ngClass]="{'msgClass': msgShow}" type="email" [(ngModel)]="model.email" name="email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" placeholder="YOUREMAIL@EMAIL.COM" required>
-        <input type="submit" value="SIGN UP" (click)="msgShow=!msgShow;">
-      </form>
-    </div>
-    <div [hidden]="!hasBeenSubmitted">
+      <div [hidden]="hasBeenSubmitted">
+        <form class="signup-form col-lg-3" (ngSubmit)="register(newsletterForm, $event)" #newsletterForm="ngForm">
+          <input type="email" [(ngModel)]="model.email" name="email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" placeholder="YOUREMAIL@EMAIL.COM" required>
+          <input type="submit" value="SIGN UP">
+        </form>
+      </div>
+      <div [hidden]="!hasBeenSubmitted">
+        <modal #myModal>
+          <modal-header [show-close]="true">
+            <h4>Thank you for submitting our news letter</h4>
+          </modal-header>
+          <modal-body>
+            <p>You were submitted with {{model.email}}</p>
+          </modal-body>
+          <modal-footer>
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="modal.close()">Ok</button>
+          </modal-footer>
+        </modal>
+      </div>
     </div>
   </section><!-- news letter form ends here -->
   <section class="footer-links">

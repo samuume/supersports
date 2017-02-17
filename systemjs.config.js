@@ -11,6 +11,7 @@
     // map tells the System loader where to look for things
     map: {
       // our app is within the app folder
+      'ng2-bs3-modal': 'node_module/ng2-bs3-modal',
       app: 'app',
 
       // angular bundles

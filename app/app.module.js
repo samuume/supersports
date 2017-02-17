@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
 var forms_1 = require('@angular/forms');
+var ng2_bs3_modal_1 = require('ng2-bs3-modal/ng2-bs3-modal');
 var app_component_1 = require('./app.component');
 var header_component_1 = require('./shared/site-header/header.component');
 var footer_component_1 = require('./shared/site-footer/footer.component');
@@ -37,7 +38,8 @@ var AppModule = (function () {
                     { path: '', redirectTo: 'home', pathMatch: 'full' },
                     { path: '**', redirectTo: 'home', pathMatch: 'full' }
                 ]),
-                forms_1.FormsModule
+                forms_1.FormsModule,
+                ng2_bs3_modal_1.Ng2Bs3ModalModule
             ],
             declarations: [
                 app_component_1.AppComponent,

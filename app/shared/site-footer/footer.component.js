@@ -12,6 +12,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by zongy on 12-02-2017.
  */
 var core_1 = require('@angular/core');
+var ng2_bs3_modal_1 = require('ng2-bs3-modal/ng2-bs3-modal');
 var Newsletter = (function () {
     function Newsletter() {
     }
@@ -19,9 +20,7 @@ var Newsletter = (function () {
 }());
 var FooterComponent = (function () {
     function FooterComponent() {
-        this.msgText = "";
         this.model = new Newsletter();
-        this.msgShow = false;
     }
     FooterComponent.prototype.ngOnInit = function () {
         this.hasBeenSubmitted = false;
@@ -29,8 +28,12 @@ var FooterComponent = (function () {
     FooterComponent.prototype.register = function (form, event) {
         event.preventDefault();
         this.hasBeenSubmitted = true;
-        this.msgText = "You have been submitted our newsletter with " + form.value.email;
+        this.modal.open();
     };
+    __decorate([
+        core_1.ViewChild('myModal'), 
+        __metadata('design:type', ng2_bs3_modal_1.ModalComponent)
+    ], FooterComponent.prototype, "modal", void 0);
     FooterComponent = __decorate([
         core_1.Component({
             selector: 'site-footer',

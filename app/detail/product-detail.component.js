@@ -34,11 +34,6 @@ var ProductDetailComponent = (function () {
         this.sizes = ["EU 41", "EU 42", "EU 43", "EU 44", "EU 45", "EU 46"];
     };
     ProductDetailComponent.prototype.ngAfterViewInit = function () {
-        // Product image swap
-        $('.image-toggler').click(function () {
-            $('.image-toggle').hide();
-            $($(this).attr('data-image-id')).show();
-        });
     };
     ProductDetailComponent = __decorate([
         core_1.Component({

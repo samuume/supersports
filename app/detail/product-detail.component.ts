@@ -35,10 +35,6 @@ export class ProductDetailComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Product image swap
-    $('.image-toggler').click(function(){
-      $('.image-toggle').hide();
-      $($(this).attr('data-image-id')).show();
-    });
+
   }
 }
